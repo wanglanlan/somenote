@@ -1,0 +1,23 @@
+<div class="login">
+    <div class="message">注册</div>
+    <div id="darkbannerwrap"></div>
+    
+    <form role="form">
+		<input name="action" value="login" type="hidden">
+		<div class="form-group">
+    <label for="exampleInputEmail1">用户名:</label>
+    <input ng-model='updata.username' type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+		<hr class="hr15">
+		<div class="form-group">
+    <label for="exampleInputPassword1">密码:</label>
+    <input ng-model='updata.password' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+		<hr class="hr15">
+		<button ng-click="add()" style="width: 100%;background: #f8dbb6;border: 0px;" type="button" class="btn btn-info">注册</button>
+		<!--<hr class="hr20">
+		 <a onClick="alert('请联系管理员')">忘记密码</a>-->
+		 
+	</form>
+
+</div>
