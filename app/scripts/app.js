@@ -2,31 +2,36 @@
 
 /**
  * @ngdoc overview
- * @name somenoteApp
+ * @name denglApp
  * @description
- * # somenoteApp
+ * # denglApp
  *
  * Main module of the application.
  */
-angular.module('somenoteApp', [ 'ngCookies','ui.router','ngCookies']).constant('server','http://www.somenote.cn:1510').controller("app",['$scope','$http','server',function ($scope,$http,server) {
-  	// body...
-  	
-  	}
-  ]).config(function ($stateProvider,$urlRouterProvider){
-  	$stateProvider.state("denglu",{
-  		url:"/denglu",
-  		templateUrl:"views/denglu.html",
-  		controller:"dl"
-  	})
-  	.state("zhuce",{
-  		url:"/zhuce",
-  		templateUrl:"views/zhuce.html",
-  		controller:"zc"
-  	})
-  	.state("sy",{
-  		url:"/sy",
-  		templateUrl:"views/sy.html"
-  		
-  	})
-  	$urlRouterProvider.when('','/denglu')
-  	})
+angular
+  .module('denglApp', ["ui.router","ngCookies"]).constant("server","http://www.somenote.cn:1510").controller("app",["$scope","$http",function ($scope,$http,server) {
+  }])
+.config(["$stateProvider","$urlRouterProvider",function ($stateProvider,$urlRouterProvider){
+	$stateProvider.state("a",{
+		url:"/a",
+		templateUrl:"views/about.html",
+		controller:"cen"
+	}).state("b",{
+		url:"/b",
+		templateUrl:"views/zhuce.html",
+		controller:"can"
+	}).state("c",{
+		url:"/c",
+		templateUrl:"views/c.html",
+		controller:"cmn"
+	}).state("add",{
+		url:"/add",
+		templateUrl:"views/add.html",
+		controller:"cmn"
+	}).state("edit",{
+		url:"/edit?id&title&content",
+		templateUrl:"views/edit.html",
+		controller:"cmn"
+	})
+	$urlRouterProvider.when('','/a');
+}])

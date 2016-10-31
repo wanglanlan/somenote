@@ -1,23 +1,30 @@
-<div class="login">
-    <div class="message">注册</div>
-    <div id="darkbannerwrap"></div>
-    
-    <form role="form">
-		<input name="action" value="login" type="hidden">
-		<div class="form-group">
-    <label for="exampleInputEmail1">用户名:</label>
-    <input ng-model='updata.username' type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-  </div>
-		<hr class="hr15">
-		<div class="form-group">
-    <label for="exampleInputPassword1">密码:</label>
-    <input ng-model='updata.password' type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
-		<hr class="hr15">
-		<button ng-click="add()" style="width: 100%;background: #f8dbb6;border: 0px;" type="button" class="btn btn-info">注册</button>
-		<!--<hr class="hr20">
-		 <a onClick="alert('请联系管理员')">忘记密码</a>-->
-		 
-	</form>
-
-</div>
+<header><h2>注册账户</h2></header>
+<form action="" name="registerName" id="registerName" method="post">
+    <div>
+        <input type="text" id="username" name="username" ng-model="updata.username" placeholder="请输入用户名" />
+        <p>用户名：</p>
+    </div>
+    <div>
+        <input type="password" id="userpwd" name="userpwd" ng-model="updata.password" placeholder="请输入密码"  />
+        <p>密码：</p>
+    </div>
+    <!--需要进行ajax请求的按钮不能使用button或sumbit按钮，需要使用其他标签模拟一个按钮来操作-->
+    <!--当点击事件传参为true才会发送注册请求-->
+    <a id="confirmRegister" ng-click="fn1()">注册</a>
+    <p class="help-block-require">
+        <label ng-show="registerName.username.$dirty&&registerName.username.$error.required">
+            *必填字段
+        </label>
+        <label ng-show="registerName.userpwd.$dirty&&registerName.userpwd.$error.required">
+            *必填字段
+        </label>
+    </p>
+    <p class="help-block">
+        <label ng-show="registerName.username.$error.pattern">
+            *请输入8位字符，只能包含字符、数字和下划线
+        </label>
+        <label ng-show="registerName.userpwd.$error.pattern">
+            *请输入以字母开头，长度在6~18之间，只能包含字符、数字和下划线的密码
+        </label>
+    </p>
+</form>
