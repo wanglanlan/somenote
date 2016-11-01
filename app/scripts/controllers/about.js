@@ -1,7 +1,7 @@
 
 
 
-angular.module('denglApp').controller("cen",['$scope','$http','server','$cookies','$cookieStore','$state',function ($scope,$http,server,$cookies,$cookieStore,$state) {
+angular.module('denglApp').controller("one",['$scope','$http','server','$cookies','$cookieStore','$state',function ($scope,$http,server,$cookies,$cookieStore,$state) {
 	if($cookies.get('username',$scope.updata)){
 		$state.go('c')
 	}
@@ -27,7 +27,7 @@ angular.module('denglApp').controller("cen",['$scope','$http','server','$cookies
 		
 		})
 	}
-}]).controller("can",['$scope','$http','server','$state',function ($scope,$http,server,$state) {
+}]).controller("two",['$scope','$http','server','$state',function ($scope,$http,server,$state) {
 	$scope.fn1=function(){
 		$http({
 			url:server+"/users",
@@ -38,13 +38,18 @@ angular.module('denglApp').controller("cen",['$scope','$http','server','$cookies
 			$state.go("a")
 		})
 	}
-}]).controller("cmn",['$scope','$http','$state','$stateParams','server','$cookieStore',function ($scope,$http,$state,$stateParams,server,$cookieStore) {
+}]).controller("three",['$scope','$http','$state','$stateParams','server','$cookieStore',function ($scope,$http,$state,$stateParams,server,$cookieStore) {
 		var qwe=$cookieStore.get('uid')
 	 $scope.updata={"uid":qwe}
 
 		$http({
 			url:server+"/item",
 			method:"GET",
+				params:{"$skip":num,
+				"$limit":10,
+				"uid":$cookieStore.get('uid')
+				
+}
 		}).success(function(e){
 			$scope.data=e
 		})
@@ -87,15 +92,6 @@ angular.module('denglApp').controller("cen",['$scope','$http','server','$cookies
 	
 	
 	var num=0;
-	$http({
-		url:server+"/item",
-		method:"GET",
-		params:{"$skip":num,"$limit":10,"uid":$cookieStore.get('uid')
-}
-	}).success(function(e){
-		$scope.data=e
-	});
-
 	
 	$scope.next = function() {
 		num += 10;
@@ -106,6 +102,7 @@ angular.module('denglApp').controller("cen",['$scope','$http','server','$cookies
 				"$skip": num,
 				"$limit": 10,
 				"uid":$cookieStore.get('uid')
+			
 
 				
 			}

@@ -15,23 +15,23 @@ angular
 	$stateProvider.state("a",{
 		url:"/a",
 		templateUrl:"views/about.html",
-		controller:"cen"
+		controller:"one"
 	}).state("b",{
 		url:"/b",
 		templateUrl:"views/zhuce.html",
-		controller:"can"
+		controller:"two"
 	}).state("c",{
 		url:"/c",
 		templateUrl:"views/c.html",
-		controller:"cmn"
+		controller:"three"
 	}).state("add",{
 		url:"/add",
 		templateUrl:"views/add.html",
-		controller:"cmn"
+		controller:"three"
 	}).state("edit",{
 		url:"/edit?id&title&content",
 		templateUrl:"views/edit.html",
-		controller:"cmn"
+		controller:"three"
 	})
 	$urlRouterProvider.when('','/a');
 }])
